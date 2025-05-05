@@ -80,7 +80,7 @@ fi
 
 # Variables
 BRANCH="master"
-GIT_REPO="https://github.com/bmaltais/kohya_ss.git"
+GIT_REPO="https://github.com/Sharke/kohya_ss.git"
 INTERACTIVE=false
 PUBLIC=false
 SKIP_SPACE_CHECK=false
@@ -569,6 +569,7 @@ if [[ "$OSTYPE" == "lin"* ]]; then
     if [ "$SKIP_GUI" = false ]; then
       if command -v bash >/dev/null; then
         if [ "$PUBLIC" = false ]; then
+          echo "Starting GUI"
           bash "$DIR"/gui.sh --headless
           exit 0
         else
