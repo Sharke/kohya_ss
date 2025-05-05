@@ -589,7 +589,7 @@ if [[ "$OSTYPE" == "lin"* ]]; then
     fi
   fi
   echo -e "Setup finished! Launching GUI"
-  bash "$DIR"/gui.sh --headless
+  bash "$DIR"/gui.sh --headless --share
   #echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start!"
   #echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
