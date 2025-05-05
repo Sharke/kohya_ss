@@ -121,7 +121,7 @@ v_pred_like_loss = 0                      # V pred like loss weight
 wandb_api_key = ""                        # Wandb api key
 wandb_run_name = ""                       # Wandb run name
 weighted_captions = false                 # Weighted captions
-xformers = "sdp"                     # CrossAttention (none, sdp, xformers)
+xformers = "sdpa"                     # CrossAttention (none, sdp, xformers)
 
 # This next section can be used to set default values for the Dataset Preparation section
 # The "Destination training direcroty" field will be equal to "train_data_dir" as specified above
