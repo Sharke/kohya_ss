@@ -591,19 +591,19 @@ if [[ "$OSTYPE" == "lin"* ]]; then
       if [ "$SKIP_GUI" = false ]; then
       if command -v bash >/dev/null; then
         if [ "$PUBLIC" = false ]; then
-          bash "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860
+          bash "$DIR"/gui.sh --headless --listen 0.0.0.0 --server_port 7860
           exit 0
         else
-          bash "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860 --share
+          bash "$DIR"/gui.sh --headless --listen 0.0.0.0 --server_port 7860 --share
           exit 0
         fi
       else
         # This shouldn't happen, but we're going to try to help.
         if [ "$PUBLIC" = false ]; then
-          sh "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860
+          sh "$DIR"/gui.sh --headless --listen 0.0.0.0 --server_port 7860
           exit 0
         else
-          sh "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860 --share
+          sh "$DIR"/gui.sh --headless --listen 0.0.0.0 --server_port 7860 --share
           exit 0
         fi
       fi
