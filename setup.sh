@@ -566,8 +566,10 @@ if [[ "$OSTYPE" == "lin"* ]]; then
     configure_accelerate
 
     # This is a non-interactive environment, so just directly call gui.sh after all setup steps are complete.
+    echo "SKIP_GUI is set to: $SKIP_GUI"
     if [ "$SKIP_GUI" = false ]; then
       if command -v bash >/dev/null; then
+        echo "Attempting to start GUI"
         if [ "$PUBLIC" = false ]; then
           echo "Starting GUI"
           bash "$DIR"/gui.sh --headless
@@ -578,6 +580,7 @@ if [[ "$OSTYPE" == "lin"* ]]; then
         fi
       else
         # This shouldn't happen, but we're going to try to help.
+        echo "This shouldn't happen, but we're going to try to help."
         if [ "$PUBLIC" = false ]; then
           sh "$DIR"/gui.sh --headless
           exit 0
