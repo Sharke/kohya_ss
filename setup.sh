@@ -588,9 +588,10 @@ if [[ "$OSTYPE" == "lin"* ]]; then
       fi
     fi
   fi
-
-  echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start!"
-  echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
+  echo -e "Setup finished! Launching GUI"
+  bash "$DIR"/gui.sh --headless
+  #echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start!"
+  #echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # The initial setup script to prep the environment on macOS
   # xformers has been omitted as that is for Nvidia GPUs only
