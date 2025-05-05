@@ -627,6 +627,26 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 
   configure_accelerate
+      if [ "$SKIP_GUI" = false ]; then
+      if command -v bash >/dev/null; then
+        if [ "$PUBLIC" = false ]; then
+          bash "$DIR"/gui.sh --headless
+          exit 0
+        else
+          bash "$DIR"/gui.sh --headless --share
+          exit 0
+        fi
+      else
+        # This shouldn't happen, but we're going to try to help.
+        if [ "$PUBLIC" = false ]; then
+          sh "$DIR"/gui.sh --headless
+          exit 0
+        else
+          sh "$DIR"/gui.sh --headless --share
+          exit 0
+        fi
+      fi
+    fi
   echo -e "Setup finished! Run ./gui.sh to start."
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # Cygwin is a standalone suite of Linux utilities on Windows
