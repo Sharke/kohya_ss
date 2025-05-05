@@ -589,7 +589,7 @@ if [[ "$OSTYPE" == "lin"* ]]; then
     fi
   fi
 
-  echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start."
+  echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start!"
   echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # The initial setup script to prep the environment on macOS
@@ -628,26 +628,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 
   configure_accelerate
-      if [ "$SKIP_GUI" = false ]; then
-      if command -v bash >/dev/null; then
-        if [ "$PUBLIC" = false ]; then
-          bash "$DIR"/gui.sh --headless
-          exit 0
-        else
-          bash "$DIR"/gui.sh --headless --share
-          exit 0
-        fi
-      else
-        # This shouldn't happen, but we're going to try to help.
-        if [ "$PUBLIC" = false ]; then
-          sh "$DIR"/gui.sh --headless
-          exit 0
-        else
-          sh "$DIR"/gui.sh --headless --share
-          exit 0
-        fi
-      fi
-    fi
+
   echo -e "Setup finished! Run ./gui.sh to start."
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # Cygwin is a standalone suite of Linux utilities on Windows
