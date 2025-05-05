@@ -43,12 +43,12 @@ dependencies = [
     "timm==0.6.12",
     "tk==0.1.0",
     "toml==0.10.2",
-    "torch>=2.5.0",
-    "torchvision>=0.20.0",
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
     "transformers==4.44.2",
     "voluptuous==0.13.1",
     "wandb==0.18.0",
-    "xformers>=0.0.28.post2",
+    "xformers>=0.0.30",
 ]
 
 [tool.uv.sources]

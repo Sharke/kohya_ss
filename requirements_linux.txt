@@ -1,13 +1,14 @@
 # Custom index URL for specific packages
 --extra-index-url https://download.pytorch.org/whl/cu128
 
-torch
-torchvision
-xformers
+torch==2.7.0+cu128
+torchvision==0.22.0.+cu128
+xformers==0.0.30
 
-bitsandbytes
-tensorboard
-tensorflow
-onnxruntime-gpu
+
+bitsandbytes==0.44.0
+tensorboard==2.15.2
+tensorflow==2.15.0.post1
+onnxruntime-gpu==1.19.2
 
 -r requirements.txt
