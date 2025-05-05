@@ -566,12 +566,9 @@ if [[ "$OSTYPE" == "lin"* ]]; then
     configure_accelerate
 
     # This is a non-interactive environment, so just directly call gui.sh after all setup steps are complete.
-    echo "SKIP_GUI is set to: $SKIP_GUI"
     if [ "$SKIP_GUI" = false ]; then
       if command -v bash >/dev/null; then
-        echo "Attempting to start GUI"
         if [ "$PUBLIC" = false ]; then
-          echo "Starting GUI"
           bash "$DIR"/gui.sh --headless
           exit 0
         else
@@ -580,7 +577,6 @@ if [[ "$OSTYPE" == "lin"* ]]; then
         fi
       else
         # This shouldn't happen, but we're going to try to help.
-        echo "This shouldn't happen, but we're going to try to help."
         if [ "$PUBLIC" = false ]; then
           sh "$DIR"/gui.sh --headless
           exit 0
@@ -591,10 +587,29 @@ if [[ "$OSTYPE" == "lin"* ]]; then
       fi
     fi
   fi
-  echo -e "Setup finished! Launching GUI"
-  bash "$DIR"/gui.sh --headless --share
-  #echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start!"
-  #echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
+
+      if [ "$SKIP_GUI" = false ]; then
+      if command -v bash >/dev/null; then
+        if [ "$PUBLIC" = false ]; then
+          bash "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860
+          exit 0
+        else
+          bash "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860 --share
+          exit 0
+        fi
+      else
+        # This shouldn't happen, but we're going to try to help.
+        if [ "$PUBLIC" = false ]; then
+          sh "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860
+          exit 0
+        else
+          sh "$DIR"/gui.sh --headless --listen 127.0.0.1 --server_port 7860 --share
+          exit 0
+        fi
+      fi
+    fi
+  echo -e "Setup finished! Run \e[0;92m./gui.sh\e[0m to start."
+  echo "Please note if you'd like to expose your public server you need to run ./gui.sh --share"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # The initial setup script to prep the environment on macOS
   # xformers has been omitted as that is for Nvidia GPUs only
