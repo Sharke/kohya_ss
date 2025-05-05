@@ -9,8 +9,8 @@ use_shell = false # Use shell during process run of sd-scripts oython code. Most
 models_dir = "./models"                    # Pretrained model name or path
 output_name = "new model"                  # Trained model output name
 train_data_dir = "./data"                  # Image folder (containing training images subfolders) / Image folder (containing training images)
-dataset_config = "./test.toml"             # Dataset config file (Optional. Select the toml configuration file to use for the dataset)
-training_comment = "Some training comment" # Training comment
+#dataset_config = "./test.toml"             # Dataset config file (Optional. Select the toml configuration file to use for the dataset)
+#training_comment = "Some training comment" # Training comment
 save_model_as = "safetensors"              # Save model as (ckpt, safetensors, diffusers, diffusers_safetensors)
 save_precision = "bf16"                    # Save model precision (fp16, bf16, float)
 
